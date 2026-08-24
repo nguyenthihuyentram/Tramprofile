@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Giới Thiệu Bản Thân</title>
+  <!-- Kết nối file CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Thanh điều hướng -->
+  <header>
+    <nav>
+      <div class="logo">MyProfile</div>
+      <ul class="nav-links">
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#dashboard">Thống kê</a></li>
+        <li><a href="#skills">Kỹ năng</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#student-websites">Website SV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Phần Giới thiệu bản thân -->
+    <section id="about">
+      <div class="profile-card">
+        <img src="tram1.jpg" alt="Ảnh đại diện" class="avatar">
+        <div class="profile-info">
+          <h1>Xin chào, Tôi là Nguyễn Thị Huyền Trâm</h1>
+          <h2>Học Tại Trường DHHP , Mã Sinh Viên 233148201012</h2>
+          <p class="title">Lập trình viên Web / Sinh viên Công nghệ Thông tin</p>
+          <p>Tôi đam mê xây dựng các ứng dụng web tối ưu, thân thiện với người dùng và liên tục trau dồi các công nghệ mới.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KHỐI THỐNG KÊ TỔNG QUAN (Mới thêm từ ảnh) -->
+    <section id="dashboard" class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-info">
+            <p class="stat-title">Tổng sinh viên</p>
+            <h3 class="stat-number">1.248</h3>
+            <span class="stat-sub text-green">Tăng 36 sinh viên</span>
+          </div>
+          <div class="stat-icon icon-blue">SV</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <p class="stat-title">Lớp đang quản lý</p>
+            <h3 class="stat-number">32</h3>
+            <span class="stat-sub text-gray">6 khóa đào tạo</span>
+          </div>
+          <div class="stat-icon icon-light-blue">LH</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <p class="stat-title">Sinh viên cảnh báo</p>
+            <h3 class="stat-number">47</h3>
+            <span class="stat-sub text-red">Cần theo dõi học tập</span>
+          </div>
+          <div class="stat-icon icon-light-blue">CB</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <p class="stat-title">Tỷ lệ đạt</p>
+            <h3 class="stat-number">92.6%</h3>
+            <span class="stat-sub text-green">Học kỳ hiện tại</span>
+          </div>
+          <div class="stat-icon icon-light-blue">TL</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phần Kỹ năng -->
+    <section id="skills">
+      <h2>Kỹ Năng</h2>
+      <div class="skills-grid">
+        <div class="skill-item">HTML</div>
+        <div class="skill-item">CSS</div>
+        <div class="skill-item">JavaScript</div>
+        <div class="skill-item">Python</div>
+        <div class="skill-item">C# / WinForms</div>
+        <div class="skill-item">Git</div>
+      </div>
+    </section>
+
+    <!-- Phần Dự án -->
+    <section id="projects">
+      <h2>Dự Án Đã Thực Hiện</h2>
+      <div class="project-list">
+        <div class="project-item">
+          <h3>Website Thương Mại Điện Tử</h3>
+          <p>Thiết kế giao diện, tùy chỉnh bài viết/sản phẩm và tối ưu trải nghiệm người dùng.</p>
+        </div>
+        <div class="project-item">
+          <h3>Ứng Dụng Quản Lý Sách</h3>
+          <p>Phần mềm quản lý danh mục và dữ liệu sách sử dụng C# và cơ sở dữ liệu quan hệ.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chức năng: Quản lý Website của sinh viên -->
+    <section id="student-websites" class="website-section">
+      <h2>Website của sinh viên</h2>
+      
+      <!-- Form nhập tên và đường dẫn website -->
+      <div class="form-group">
+        <input type="text" id="student-name" placeholder="Tên sinh viên">
+        <input type="url" id="student-url" placeholder="https://tenwebsite-cua-ban.com">
+        <button id="add-btn" onclick="addWebsite()">Thêm website</button>
+      </div>
+      <p class="input-note">Nhập tên và link website cá nhân để chia sẻ với mọi người.</p>
+      <p id="success-msg" class="success-text" style="display: none;">Đã thêm website vào danh sách chung.</p>
+
+      <!-- Danh sách hiển thị các website sinh viên -->
+      <div class="website-list" id="website-list">
+        
+        <div class="website-item">
+          <div class="site-info">
+            <strong>Nguyễn Hoàng Phúc</strong>
+            <a href="https://myweb-orcin-ten.vercel.app/" target="_blank">https://myweb-orcin-ten.vercel.app/</a>
+          </div>
+          <div class="site-actions">
+            <a href="https://myweb-orcin-ten.vercel.app/" target="_blank" class="btn-action btn-open">Mở website</a>
+            <button class="btn-action btn-edit">Sửa</button>
+            <button class="btn-action btn-delete" onclick="this.parentElement.parentElement.remove()">Xóa</button>
+          </div>
+        </div>
+
+        <div class="website-item">
+          <div class="site-info">
+            <strong>Nguyễn Thị Mỹ Huyền</strong>
+            <a href="https://myweb-orcin-ten.vercel.app/" target="_blank">https://myweb-orcin-ten.vercel.app/</a>
+          </div>
+          <div class="site-actions">
+            <a href="https://myweb-orcin-ten.vercel.app/" target="_blank" class="btn-action btn-open">Mở website</a>
+            <button class="btn-action btn-edit">Sửa</button>
+            <button class="btn-action btn-delete" onclick="this.parentElement.parentElement.remove()">Xóa</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Phần Tương tác JS -->
+    <section class="interactive-zone">
+      <h2>Góc Cảm Hứng</h2>
+      <button id="quote-btn">Xem câu nói yêu thích</button>
+      <p id="quote-display"></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Nguyễn Thị Huyền Trâm. All rights reserved.</p>
+  </footer>
+
+  <!-- Kết nối file JavaScript -->
+  <script src="script.js"></script>
+  
+  <script>
+    function addWebsite() {
+      const nameInput = document.getElementById('student-name');
+      const urlInput = document.getElementById('student-url');
+      const list = document.getElementById('website-list');
+      const successMsg = document.getElementById('success-msg');
+
+      if (nameInput.value.trim() === '' || urlInput.value.trim() === '') {
+        alert('Vui lòng nhập đầy đủ Tên sinh viên và Link website!');
+        return;
+      }
+
+      const newItem = document.createElement('div');
+      newItem.className = 'website-item';
+      newItem.innerHTML = `
+        <div class="site-info">
+          <strong>${nameInput.value}</strong>
+          <a href="${urlInput.value}" target="_blank">${urlInput.value}</a>
+        </div>
+        <div class="site-actions">
+          <a href="${urlInput.value}" target="_blank" class="btn-action btn-open">Mở website</a>
+          <button class="btn-action btn-edit">Sửa</button>
+          <button class="btn-action btn-delete" onclick="this.parentElement.parentElement.remove()">Xóa</button>
+        </div>
+      `;
+
+      list.appendChild(newItem);
+      nameInput.value = '';
+      urlInput.value = '';
+      
+      successMsg.style.display = 'block';
+      setTimeout(() => { successMsg.style.display = 'none'; }, 3000);
+    }
+  </script>
+</body>
+</html>
