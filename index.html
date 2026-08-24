@@ -165,38 +165,54 @@
   <script src="script.js"></script>
   
   <script>
-    function addWebsite() {
-      const nameInput = document.getElementById('student-name');
-      const urlInput = document.getElementById('student-url');
-      const list = document.getElementById('website-list');
-      const successMsg = document.getElementById('success-msg');
+  function addWebsite() {
+    const nameInput = document.getElementById('student-name');
+    const urlInput = document.getElementById('student-url');
+    const list = document.getElementById('website-list');
+    const successMsg = document.getElementById('success-msg');
 
-      if (nameInput.value.trim() === '' || urlInput.value.trim() === '') {
-        alert('Vui lòng nhập đầy đủ Tên sinh viên và Link website!');
-        return;
-      }
-
-      const newItem = document.createElement('div');
-      newItem.className = 'website-item';
-      newItem.innerHTML = `
-        <div class="site-info">
-          <strong>${nameInput.value}</strong>
-          <a href="${urlInput.value}" target="_blank">${urlInput.value}</a>
-        </div>
-        <div class="site-actions">
-          <a href="${urlInput.value}" target="_blank" class="btn-action btn-open">Mở website</a>
-          <button class="btn-action btn-edit">Sửa</button>
-          <button class="btn-action btn-delete" onclick="this.parentElement.parentElement.remove()">Xóa</button>
-        </div>
-      `;
-
-      list.appendChild(newItem);
-      nameInput.value = '';
-      urlInput.value = '';
-      
-      successMsg.style.display = 'block';
-      setTimeout(() => { successMsg.style.display = 'none'; }, 3000);
+    if (nameInput.value.trim() === '' || urlInput.value.trim() === '') {
+      alert('Vui lòng nhập đầy đủ Tên sinh viên và Link website!');
+      return;
     }
-  </script>
+
+    const newItem = document.createElement('div');
+    newItem.className = 'website-item';
+    newItem.innerHTML = `
+      <div class="site-info">
+        <strong>${nameInput.value}</strong>
+        <a href="${urlInput.value}" target="_blank">${urlInput.value}</a>
+      </div>
+      <div class="site-actions">
+        <a href="${urlInput.value}" target="_blank" class="btn-action btn-open">Mở website</a>
+        <button class="btn-action btn-edit" onclick="editWebsite(this)">Sửa</button>
+        <button class="btn-action btn-delete" onclick="this.parentElement.parentElement.remove()">Xóa</button>
+      </div>
+    `;
+
+    list.appendChild(newItem);
+    nameInput.value = '';
+    urlInput.value = '';
+    
+    successMsg.style.display = 'block';
+    setTimeout(() => { successMsg.style.display = 'none'; }, 3000);
+  }
+
+  function editWebsite(btn) {
+    const item = btn.parentElement.parentElement;
+    const strong = item.querySelector('.site-info strong');
+    const link = item.querySelector('.site-info a');
+
+    const newName = prompt('Nhập tên sinh viên mới:', strong.innerText);
+    const newUrl = prompt('Nhập link website mới:', link.href);
+
+    if (newName && newUrl) {
+      strong.innerText = newName;
+      link.href = newUrl;
+      link.innerText = newUrl;
+      item.querySelectorAll('a')[1].href = newUrl;
+    }
+  }
+</script>
 </body>
 </html>
